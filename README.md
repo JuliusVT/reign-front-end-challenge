@@ -1,27 +1,28 @@
 # HackerNews
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+Prueba tecnica para reign, la prueba consiste en desarrollar el Front End para la API Hacker News, con la cual tenemos un Diseño previo brindado por Reign en Figma.
 
-## Development server
+Requerimientos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Listar las noticias
 
-## Code scaffolding
+* Agregar a favoritos y obtener el listado (localStorage)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Scroll Infinito
 
-## Build
+## Link Netlify
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`https://reign-hacks-news.netlify.app/news/all`
 
-## Running unit tests
+## Entorno de Desarrollo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Ejecutar `ng serve` para un servidor de desarrollo. Navegar hasta `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos de origen.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Entorno de Producción
 
-## Further help
+Ejecutar `ng build` para construir el proyecto. Los artefactos de construcción se almacenarán en el directorio `dist/`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Ejecución de pruebas unitarias
+
+Ejecutar `ng test` para ejecutar las pruebas unitarias a través de [Karma](https://karma-runner.github.io).
