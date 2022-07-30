@@ -44,7 +44,7 @@ export class ReignCardComponent {
     this.newsUrl.emit();
   }
 
-  handleFavePostSaved() {
+  handleFaveNewsSaved() {
     this.newsFaved.emit();
   }
 
