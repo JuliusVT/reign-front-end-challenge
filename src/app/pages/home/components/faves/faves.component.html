@@ -1,0 +1,35 @@
+<ng-container
+  *ngIf="{
+    news: news$ | async,
+    favedNewsListIds: favedNewsListIds$ | async,
+    page: page$ | async
+  } as state"
+>
+  <div class="container news">
+    <div class="row gy-4">
+      <div
+        class="col-md-12 col-sm-12 col-lg-6"
+        *ngFor="
+          let news of state.news ?? []
+        "
+      >
+        <app-reign-card
+          [author]="news.author"
+          [title]="news.story_title"
+          [url]="news.story_url"
+          [createdAt]="news.created_at"
+          [isFaved]="news | faved: state.favedNewsListIds ?? []"
+          (newsFaved)="handleFavNews(news)"
+          (newsUrl)="handleNewsDetail(news)"
+        ></app-reign-card>
+      </div>
+      <ng-container *ngIf="state.news?.length === 0" [ngTemplateOutlet]="emptyStateTemplate"></ng-container>
+    </div>
+    <ng-template #emptyStateTemplate>
+      <div class="container news d-flex flex-column justify-content-center align-items-center h-100">
+        <i class="fa-solid fa-heart-circle-xmark fa-3x" aria-hidden="true"></i>
+        You do not have favorites
+      </div>
+    </ng-template>
+  </div>
+</ng-container>

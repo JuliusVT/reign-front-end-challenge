@@ -1,0 +1,70 @@
+.container.reign-container {
+    max-width: 100%;
+    padding: 0 150px;
+    margin-bottom: 38px;
+  
+    // Small devices (landscape phones, 576px and up)
+    @media (max-width: 576px) {
+      padding: 0 5px;
+    }
+  
+    // Medium devices (tablets, 768px and up)
+    @media (max-width: 768px) {
+      padding: 0 5px;
+    }
+  }
+  
+  .container.news {
+    max-width: 100%;
+    padding: 0 150px;
+    height: auto;
+  
+    // Small devices (landscape phones, 576px and up)
+    @media (max-width: 576px) {
+      padding: 0 5px;
+    }
+  
+    // Medium devices (tablets, 768px and up)
+    @media (max-width: 768px) {
+      padding: 0 5px;
+    }
+  }
+  
+  .dropdown {
+    .dropdown-toggle {
+      text-align: left;
+      width: 240px !important;
+      height: 36px;
+      padding: 5px 12px 5px 12px;
+      border-radius: 4px;
+      border: solid 1px #2e2e2e;
+      background-color: #fff;
+      color: #000;
+      &:after { content: none }
+      .caret{
+        position: absolute;
+        right: 10px;
+      }
+    }
+    .dropdown-menu{
+        border-radius: 2px;
+    }
+    .dropdown-item{
+        width: 240px;
+        height: 46px;
+        padding: 6px 89px 10px 11px;
+    }
+    .btn-check:focus + .btn, .btn:focus{
+        box-shadow: none;
+    }
+  }
+  
+  img.logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  .fa {
+    vertical-align: middle;
+  }
+  

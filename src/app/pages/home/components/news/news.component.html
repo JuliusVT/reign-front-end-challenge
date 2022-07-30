@@ -1,0 +1,92 @@
+<ng-container
+  *ngIf="{
+    page: page$ | async,
+    query: query$ | async,
+    postsInfinite: postsInfinite$ | async,
+    isLoading: isLoading$ | async,
+    favedNewsListIds: favedNewsListIds$ | async,
+    allNews: allNews$ | async
+  } as state"
+>
+  <!-- Query Selector -->
+  <div class="container reign-container">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle>
+        <span class="caret"><i class="fa-solid fa-chevron-down"></i></span>
+        <ng-container [ngSwitch]="state.query">
+          <ng-container *ngSwitchCase="'angular'" [ngTemplateOutlet]="angular"></ng-container>
+          <ng-container *ngSwitchCase="'reactjs'" [ngTemplateOutlet]="react"></ng-container>
+          <ng-container *ngSwitchCase="'vuejs'" [ngTemplateOutlet]="vuejs"></ng-container>
+          <ng-container *ngSwitchDefault>Select your news</ng-container>
+        </ng-container>
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem (click)="handleSearchQuery('angular')">
+          <ng-container [ngTemplateOutlet]="angular"></ng-container>
+        </button>
+        <button ngbDropdownItem (click)="handleSearchQuery('reactjs')">
+          <ng-container [ngTemplateOutlet]="react"></ng-container>
+        </button>
+        <button ngbDropdownItem (click)="handleSearchQuery('vuejs')">
+          <ng-container [ngTemplateOutlet]="vuejs"></ng-container>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Template -->
+  <ng-template #loadingTemplate>
+    <div class="container news d-flex justify-content-center align-items-center h-100">
+      <div *ngIf="state.isLoading">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+      </div>
+    </div>
+  </ng-template>
+    <div class="container news">
+        <div class="row gy-4">
+            <div
+            infinite-scroll
+            [infiniteScrollDistance]="1"
+            [infiniteScrollThrottle]="500"
+            [infiniteScrollDisabled]="scrollCheck()"
+            (scrolled)="handleScrollDown()"
+            *ngFor="let news of state.allNews ?? []; trackBy: identifyNews"
+            class="col-md-12 col-sm-12 col-lg-6"
+            >
+            <app-reign-card
+            [author]="news.author"
+            [title]="news.story_title"
+            [url]="news.story_url"
+            [createdAt]="news.created_at"
+            [isFaved]="news | faved: state.favedNewsListIds ?? []"
+            (newsFaved)="handleFavNews(news)"
+            (newsUrl)="handleNewsDetail(news)"
+            ></app-reign-card>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #angular>
+  <img src="assets/image-138.png" srcset="assets/image-138@2x.png 2x, assets/image-138@3x.png 3x" class="logo" />
+  Angular
+</ng-template>
+
+<ng-template #react>
+  <img src="assets/image-140.png" srcset="assets/image-140@2x.png 2x, assets/image-140@3x.png 3x" class="logo" />
+  React
+</ng-template>
+
+<ng-template #vuejs>
+  <img src="assets/image-141.png" srcset="assets/image-141@2x.png 2x, assets/image-141@3x.png 3x" class="logo" />
+  Vuejs
+</ng-template>
+
+<ng-template #emptyStateTemplate>
+  <div class="container posts d-flex flex-column justify-content-center align-items-center h-100">
+    <i class="fa fa-inbox fa-3x" aria-hidden="true"></i>
+    There are no items to show on this page :(
+  </div>
+</ng-template>
