@@ -9,7 +9,7 @@
         {{ title$ | async }}
       </p>
     </a>
-    <div *ngIf="{ isFaved: isFaved$ | async } as state" class="fav-control" (click)="handleFavePostSaved()">
+    <div *ngIf="{ isFaved: isFaved$ | async } as state" class="fav-control" (click)="handleFaveNewsSaved()">
       <img *ngIf="state.isFaved" class="fav" src="assets/fav.svg" alt="fav" height="24" />
       <img *ngIf="!state.isFaved" class="fav" src="assets/favo.svg" alt="fav" height="24" />
     </div>
