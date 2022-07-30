@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FavesComponent } from './faves/faves.component';
-import { HomeComponent } from './home.component';
-import { NewsComponent } from './news/news.component';
+import { FavesComponent } from '@app/pages/home/components/faves/faves.component';
+import { HomeComponent } from '@app/pages/home/home.component';
+import { NewsComponent } from '@app/pages/home/components/news/news.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/news/all', pathMatch: 'full' },

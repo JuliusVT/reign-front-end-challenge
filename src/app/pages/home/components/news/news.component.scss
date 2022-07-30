@@ -1,43 +1,4 @@
-.logo {
-    width: 100px;
-  }
-  
-  q {
-    font-style: italic;
-    font-size: 1.2rem;
-    quotes: "« " " »";
-  }
-  
-  .btn-primary.reign-radio {
-    width: 98px;
-    height: 31px;
-    padding: 3px 10px 0 17px;
-    border-radius: 2px;
-    border: solid 1px #d6d6d6;
-    background-color: #fcfcfc;
-  
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.75;
-    letter-spacing: normal;
-    text-align: center;
-    color: #606060;
-  
-    margin-bottom: 68px;
-  }
-  .btn-check:focus + .btn, .btn:focus{
-    box-shadow: none !important;
-  }
-
-  .btn-check:checked + .btn-primary.reign-radio, .btn-check:active + .btn-primary.reign-radio{
-    border: solid 1px #1797ff;
-    color: #1797ff;
-  }
-  
-  .container.reign-container {
+.container.reign-container {
     max-width: 100%;
     padding: 0 150px;
     margin-bottom: 38px;
@@ -56,6 +17,7 @@
   .container.news {
     max-width: 100%;
     padding: 0 150px;
+    height: auto;
   
     // Small devices (landscape phones, 576px and up)
     @media (max-width: 576px) {
@@ -71,13 +33,29 @@
   .dropdown {
     .dropdown-toggle {
       text-align: left;
-      width: 240px;
+      width: 240px !important;
       height: 36px;
       padding: 5px 12px 5px 12px;
       border-radius: 4px;
       border: solid 1px #2e2e2e;
       background-color: #fff;
       color: #000;
+      &:after { content: none }
+      .caret{
+        position: absolute;
+        right: 10px;
+      }
+    }
+    .dropdown-menu{
+        border-radius: 2px;
+    }
+    .dropdown-item{
+        width: 240px;
+        height: 46px;
+        padding: 6px 89px 10px 11px;
+    }
+    .btn-check:focus + .btn, .btn:focus{
+        box-shadow: none;
     }
   }
   
@@ -85,5 +63,8 @@
     width: 24px;
     height: 24px;
     object-fit: contain;
+  }
+  .fa {
+    vertical-align: middle;
   }
   
