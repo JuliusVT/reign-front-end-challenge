@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="container d-flex justify-content-center">
+      <form>
+        <div class="btn-group" role="group" aria-label="Radio Buttons with Bootstrap 5">
+            <input type="radio" [formControl]="radio" value="all" class="btn-check" id="btnradio1" autocomplete="off" (change)="handleViewChange()">
+            <label class="btn btn-outline-primary" for="btnradio1">All</label>
+          
+            <input type="radio" [formControl]="radio" value="faves" class="btn-check" id="btnradio2" autocomplete="off" (change)="handleViewChange()">
+            <label class="btn btn-outline-primary" for="btnradio2">My Faves</label>
+          </div>          
+      </form>
+    </div>
+  
+    <router-outlet></router-outlet>
+  </div>
