@@ -1,0 +1,17 @@
+<div class="card card-reign">
+    <a class="card-body" [href]="url$ | async">
+      <h5 class="card-title">
+        <i class="far fa-clock"></i>
+        <span>{{ createdAt$ | async | timeago: 'live' }}</span>
+        By {{ author$ | async }}
+      </h5>
+      <p class="card-text">
+        {{ title$ | async }}
+      </p>
+    </a>
+    <div *ngIf="{ isFaved: isFaved$ | async } as state" class="fav-control" (click)="handleFavePostSaved()">
+      <img *ngIf="state.isFaved" class="fav" src="assets/fav.svg" alt="fav" height="24" />
+      <img *ngIf="!state.isFaved" class="fav" src="assets/favo.svg" alt="fav" height="24" />
+    </div>
+  </div>
+  

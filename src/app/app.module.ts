@@ -6,7 +6,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
-import { HomeModule } from './pages/home/home.module';
+import { HomeModule } from '@app/pages/home/home.module';
+import { ApiPrefixInterceptor } from '@app/shared/api-prefix.interceptor';
+import { SharedModule } from '@app/shared/shared.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { TimeagoModule } from 'ngx-timeago';
+import { RouteReusableStrategy } from './shared/route-reusable-strategy';
 
 @NgModule({
   imports: [
@@ -16,20 +21,22 @@ import { HomeModule } from './pages/home/home.module';
     RouterModule,
     NgbModule,
     HomeModule,
+    TimeagoModule.forRoot(),
+    InfiniteScrollModule,
+    SharedModule,
     AppRoutingModule,
   ],
   declarations: [AppComponent],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: ApiPrefixInterceptor,
-    //   multi: true,
-    // },
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: ErrorHandlerInterceptor,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiPrefixInterceptor,
+      multi: true,
+    },
+    {
+      provide: RouteReuseStrategy,
+      useClass: RouteReusableStrategy,
+    },
   ],
   bootstrap: [AppComponent],
 })
