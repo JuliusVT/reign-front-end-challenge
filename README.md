@@ -12,7 +12,7 @@ Requerimientos
 
 ## Link Netlify
 
-[[http://localhost:8080/](https://reign-hacks-news.netlify.app/news/all)]([http://localhost:8080/](https://reign-hacks-news.netlify.app/news/all))
+[https://reign-hacks-news.netlify.app/news/all](https://reign-hacks-news.netlify.app/news/all)
 
 ## Entorno de Desarrollo
 
